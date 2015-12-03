@@ -16,14 +16,14 @@ enum CubeDirection {
 
 class CubeAnimationController: AnimationController {
     
-    init()  {
+    override init()  {
         super.init()
         presentationDuration = 0.6
         dismissalDuration = presentationDuration
         
     }
     
-    override func animateTransition(transitionContext: UIViewControllerContextTransitioning!)  {
+    override func animateTransition(transitionContext: UIViewControllerContextTransitioning)  {
         if isPresenting {
             executeCubeAnimation(transitionContext, direction: CubeDirection.turnRight)
         } else {
@@ -37,21 +37,21 @@ class CubeAnimationController: AnimationController {
         let containerView = transitionContext.containerView()
         let fromViewController = transitionContext .viewControllerForKey(UITransitionContextFromViewControllerKey)
         let toViewController = transitionContext .viewControllerForKey(UITransitionContextToViewControllerKey)
-        let fromView = fromViewController.view
-        let toView = toViewController.view
-        toView.frame = fromViewController.view.frame
+        let fromView = fromViewController?.view
+        let toView = toViewController?.view
+        toView!.frame = fromViewController!.view.frame
         
-        containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
+        containerView!.insertSubview(toViewController!.view, belowSubview: fromViewController!.view)
 
         // Create a transition background view
-        let backgroundView = UIView(frame: transitionContext.initialFrameForViewController(fromViewController))
+        let backgroundView = UIView(frame: transitionContext.initialFrameForViewController(fromViewController!))
         backgroundView.backgroundColor = UIColor.blackColor()
 
-        containerView.addSubview(backgroundView)
+        containerView!.addSubview(backgroundView)
         
         // Take a snapshot of the presenting view
-        let fromSnapshotRect = fromView.bounds
-        let fromSnapshotView = fromView.resizableSnapshotViewFromRect(fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+        let fromSnapshotRect = fromView!.bounds
+        let fromSnapshotView = fromView!.resizableSnapshotViewFromRect(fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
         fromSnapshotView.layer.anchorPointZ = -fromSnapshotView.frame.size.width / 2
         var transform:CATransform3D = CATransform3DIdentity
         transform.m34 = -1.0 / 1000
@@ -63,8 +63,8 @@ class CubeAnimationController: AnimationController {
         backgroundView.addSubview(fromSnapshotView)
 
         // Take a snapshot of the presented view
-        let toSnapshotRect = toView.bounds
-        let toSnapshotView = toView.resizableSnapshotViewFromRect(toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
+        let toSnapshotRect = toView!.bounds
+        let toSnapshotView = toView!.resizableSnapshotViewFromRect(toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
         toSnapshotView.layer.anchorPointZ = -toSnapshotView.frame.size.width / 2
         transform = CATransform3DIdentity
         transform.m34 = -1.0 / 1000

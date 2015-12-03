@@ -11,14 +11,14 @@ import QuartzCore
 
 class DropAnimationController: AnimationController {
     
-    init()  {
+    override init()  {
         super.init()
         presentationDuration = 1.0
         dismissalDuration = 0.5
         
     }
     
-    override func animateTransition(transitionContext: UIViewControllerContextTransitioning!)  {
+    override func animateTransition(transitionContext: UIViewControllerContextTransitioning)  {
         if isPresenting {
             executeDropInAnimation(transitionContext)
         } else {
@@ -32,31 +32,29 @@ class DropAnimationController: AnimationController {
         let containerView = transitionContext.containerView()
         let fromViewController = transitionContext .viewControllerForKey(UITransitionContextFromViewControllerKey)
         let toViewController = transitionContext .viewControllerForKey(UITransitionContextToViewControllerKey)
-        let fromView = fromViewController.view
-        let toView = toViewController.view
+        let fromView = fromViewController?.view
+        let toView = toViewController?.view
+        toView!.frame = fromViewController!.view.frame
         
-        containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
+        containerView!.insertSubview(toViewController!.view, belowSubview: fromViewController!.view)
         
         // Create a transition background view
-        let backgroundView = UIView(frame: transitionContext.initialFrameForViewController(fromViewController))
+        let backgroundView = UIView(frame: transitionContext.initialFrameForViewController(fromViewController!))
         backgroundView.backgroundColor = UIColor.blackColor()
-
-        containerView.addSubview(backgroundView)
+        
+        containerView!.addSubview(backgroundView)
         
         // Take a snapshot of the presenting view
-        let fromSnapshotRect = fromView.bounds
-        let fromSnapshotView = fromView.resizableSnapshotViewFromRect(fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
-  
+        let fromSnapshotRect = fromView!.bounds
+        let fromSnapshotView = fromView!.resizableSnapshotViewFromRect(fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+        
         backgroundView.addSubview(fromSnapshotView)
         
-        
         // Take a snapshot of the presented view
-        let toSnapshotRect = toView.bounds
-        let toSnapshotView = toView.resizableSnapshotViewFromRect(toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
-
+        let toSnapshotRect = toView!.bounds
+        let toSnapshotView = toView!.resizableSnapshotViewFromRect(toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
         backgroundView.addSubview(toSnapshotView)
-        
-        toSnapshotView.frame = CGRectOffset(toSnapshotView.frame, 0, -toSnapshotView.frame.size.height);
+        toSnapshotView.frame = CGRectOffset(toSnapshotRect, 0, -toSnapshotRect.size.height);
 
         UIView.animateWithDuration(presentationDuration, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: .CurveEaseInOut, animations: {
                     fromSnapshotView.transform = CGAffineTransformMakeScale(0.5, 0.5);
@@ -82,27 +80,27 @@ class DropAnimationController: AnimationController {
         let containerView = transitionContext.containerView()
         let fromViewController = transitionContext .viewControllerForKey(UITransitionContextFromViewControllerKey)
         let toViewController = transitionContext .viewControllerForKey(UITransitionContextToViewControllerKey)
-        let fromView = fromViewController.view
-        let toView = toViewController.view
+        let fromView = fromViewController?.view
+        let toView = toViewController?.view
         
-        containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
+        containerView!.insertSubview((toViewController?.view)!, belowSubview: (fromViewController?.view)!)
         
         // Create a transition background view
-        let backgroundView = UIView(frame: transitionContext.initialFrameForViewController(fromViewController))
+        let backgroundView = UIView(frame: transitionContext.initialFrameForViewController(fromViewController!))
         backgroundView.backgroundColor = UIColor.blackColor()
 
-        containerView.addSubview(backgroundView)
+        containerView!.addSubview(backgroundView)
         
         // Take a snapshot of the presenting view
-        let fromSnapshotRect = fromView.bounds
-        let fromSnapshotView = fromView.resizableSnapshotViewFromRect(fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+        let fromSnapshotRect = fromView!.bounds
+        let fromSnapshotView = fromView!.resizableSnapshotViewFromRect(fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
 
         backgroundView.addSubview(fromSnapshotView)
         
         
         // Take a snapshot of the presented view
-        let toSnapshotRect = toView.bounds
-        let toSnapshotView = toView.resizableSnapshotViewFromRect(toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
+        let toSnapshotRect = toView!.bounds
+        let toSnapshotView = toView!.resizableSnapshotViewFromRect(toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
  
         backgroundView.addSubview(toSnapshotView)
         

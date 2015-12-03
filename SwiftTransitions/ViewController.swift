@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIViewControllerTransitioningDelegate {
                             
-    @IBOutlet var cubeButton: UIButton
-    @IBOutlet var doorButton: UIButton
-    @IBOutlet var dropButton: UIButton
+    @IBOutlet var cubeButton: UIButton?
+    @IBOutlet var doorButton: UIButton?
+    @IBOutlet var dropButton: UIButton?
     
     var animationController : AnimationController = AnimationController()
     
@@ -20,25 +20,26 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIViewCo
         super.viewDidLoad()
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        let buttonPressed = sender as UIButton;
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        let buttonPressed = sender as! UIButton;
         
         switch buttonPressed {
-            case cubeButton: animationController = CubeAnimationController()
-            case doorButton: animationController = DoorwayAnimationController()
-            case dropButton: animationController = DropAnimationController()
+            case cubeButton!: animationController = CubeAnimationController()
+            case doorButton!: animationController = DoorwayAnimationController()
+            case dropButton!: animationController = DropAnimationController()
         default: animationController = CubeAnimationController()
             
         }
         
-        self.navigationController.delegate = self;
+        self.navigationController!.delegate = self;
         let toVC = segue.destinationViewController as UIViewController;
         
         toVC.transitioningDelegate = self;
         
     }
     
-    func navigationController(navigationController: UINavigationController!, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController!, toViewController toVC: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         if operation == UINavigationControllerOperation.Push  {
             animationController.isPresenting = true
