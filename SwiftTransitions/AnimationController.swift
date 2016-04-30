@@ -26,8 +26,8 @@ class AnimationController: NSObject, UIViewControllerAnimatedTransitioning {
    
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let fromVC = transitionContext .viewControllerForKey(UITransitionContextFromViewControllerKey)
-        let toVC = transitionContext .viewControllerForKey(UITransitionContextToViewControllerKey)
+        let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+        let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
         let fromView = fromVC!.view
         let toView = toVC!.view
         
