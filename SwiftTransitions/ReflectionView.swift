@@ -20,7 +20,7 @@ class ReflectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override class func layerClass() -> AnyClass {
+    override class var layerClass : AnyClass {
         return CAReplicatorLayer.self
     }
   

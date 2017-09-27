@@ -20,21 +20,23 @@ class AnimationController: NSObject, UIViewControllerAnimatedTransitioning {
         dismissalDuration = presentationDuration
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return isPresenting ? presentationDuration : dismissalDuration
     }
    
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
-        let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-        let fromView = fromVC!.view
-        let toView = toVC!.view
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from), let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) else {
+            return
+        }
         
-        animateTransition(transitionContext, fromVC: fromVC!, toVC: toVC!, fromView: fromView, toView: toView)
+        let fromView = fromVC.view
+        let toView = toVC.view
+        
+        animateTransition(transitionContext, fromVC: fromVC, toVC: toVC, fromView: fromView!, toView: toView!)
     }
     
-    func animateTransition(transitionContext:UIViewControllerContextTransitioning!, fromVC:UIViewController, toVC:UIViewController, fromView:UIView, toView:UIView) {
+    func animateTransition(_ transitionContext:UIViewControllerContextTransitioning!, fromVC:UIViewController, toVC:UIViewController, fromView:UIView, toView:UIView) {
         
     }
 }
