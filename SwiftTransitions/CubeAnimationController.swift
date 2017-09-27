@@ -23,7 +23,7 @@ class CubeAnimationController: AnimationController {
         
     }
     
-    override func animateTransition(transitionContext: UIViewControllerContextTransitioning)  {
+    override func animateTransition(using transitionContext: UIViewControllerContextTransitioning)  {
         if isPresenting {
             executeCubeAnimation(transitionContext, direction: CubeDirection.turnRight)
         } else {
@@ -31,66 +31,66 @@ class CubeAnimationController: AnimationController {
         }
     }
  
-    func executeCubeAnimation(transitionContext: UIViewControllerContextTransitioning!, direction: CubeDirection) {
+    func executeCubeAnimation(_ transitionContext: UIViewControllerContextTransitioning!, direction: CubeDirection) {
         
         // Hold onto views, VCs, contexts, frames
-        let containerView = transitionContext.containerView()
-        let fromViewController = transitionContext .viewControllerForKey(UITransitionContextFromViewControllerKey)
-        let toViewController = transitionContext .viewControllerForKey(UITransitionContextToViewControllerKey)
+        let containerView = transitionContext.containerView
+        let fromViewController = transitionContext .viewController(forKey: UITransitionContextViewControllerKey.from)
+        let toViewController = transitionContext .viewController(forKey: UITransitionContextViewControllerKey.to)
         let fromView = fromViewController?.view
         let toView = toViewController?.view
         toView!.frame = fromViewController!.view.frame
         
-        containerView!.insertSubview(toViewController!.view, belowSubview: fromViewController!.view)
+        containerView.insertSubview(toViewController!.view, belowSubview: fromViewController!.view)
 
         // Create a transition background view
-        let backgroundView = UIView(frame: transitionContext.initialFrameForViewController(fromViewController!))
-        backgroundView.backgroundColor = UIColor.blackColor()
+        let backgroundView = UIView(frame: transitionContext.initialFrame(for: fromViewController!))
+        backgroundView.backgroundColor = UIColor.black
 
-        containerView!.addSubview(backgroundView)
+        containerView.addSubview(backgroundView)
         
         // Take a snapshot of the presenting view
         let fromSnapshotRect = fromView!.bounds
-        let fromSnapshotView = fromView!.resizableSnapshotViewFromRect(fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
-        fromSnapshotView.layer.anchorPointZ = -fromSnapshotView.frame.size.width / 2
+        let fromSnapshotView = fromView!.resizableSnapshotView(from: fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsets.zero)
+        fromSnapshotView?.layer.anchorPointZ = -((fromSnapshotView?.frame.size.width)! / 2)
         var transform:CATransform3D = CATransform3DIdentity
         transform.m34 = -1.0 / 1000
-        transform = CATransform3DTranslate(transform, 0, 0, fromSnapshotView.layer.anchorPointZ)
-        fromSnapshotView.layer.transform = transform
-        fromSnapshotView.layer.borderColor = UIColor.blackColor().CGColor
-        fromSnapshotView.layer.borderWidth = 2.0
+        transform = CATransform3DTranslate(transform, 0, 0, (fromSnapshotView?.layer.anchorPointZ)!)
+        fromSnapshotView?.layer.transform = transform
+        fromSnapshotView?.layer.borderColor = UIColor.black.cgColor
+        fromSnapshotView?.layer.borderWidth = 2.0
         
-        backgroundView.addSubview(fromSnapshotView)
+        backgroundView.addSubview(fromSnapshotView!)
 
         // Take a snapshot of the presented view
         let toSnapshotRect = toView!.bounds
-        let toSnapshotView = toView!.resizableSnapshotViewFromRect(toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
-        toSnapshotView.layer.anchorPointZ = -toSnapshotView.frame.size.width / 2
+        let toSnapshotView = toView!.resizableSnapshotView(from: toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsets.zero)
+        toSnapshotView?.layer.anchorPointZ = -((toSnapshotView?.frame.size.width)! / 2)
         transform = CATransform3DIdentity
         transform.m34 = -1.0 / 1000
-        transform = CATransform3DTranslate(transform, 0, 0, toSnapshotView.layer.anchorPointZ)
-        toSnapshotView.layer.transform = transform
+        transform = CATransform3DTranslate(transform, 0, 0, (toSnapshotView?.layer.anchorPointZ)!)
+        toSnapshotView?.layer.transform = transform
  
-        backgroundView.insertSubview(toSnapshotView, belowSubview:fromSnapshotView)
+        backgroundView.insertSubview(toSnapshotView!, belowSubview:fromSnapshotView!)
         
         if direction == CubeDirection.turnLeft {
-            toSnapshotView.layer.transform = CATransform3DRotate(toSnapshotView.layer.transform, CGFloat(-M_PI_2), 0, 1, 0)
+            toSnapshotView?.layer.transform = CATransform3DRotate((toSnapshotView?.layer.transform)!, CGFloat(-Double.pi/2), 0, 1, 0)
         } else {
-            toSnapshotView.layer.transform = CATransform3DRotate(toSnapshotView.layer.transform, CGFloat(M_PI_2), 0, 1, 0)
+            toSnapshotView?.layer.transform = CATransform3DRotate((toSnapshotView?.layer.transform)!, CGFloat(Double.pi / 2), 0, 1, 0)
         }
         
-        UIView.animateWithDuration(presentationDuration, delay: 0.0, options: .CurveEaseInOut, animations: {
+        UIView.animate(withDuration: presentationDuration, delay: 0.0, options: UIViewAnimationOptions(), animations: {
                 if direction == CubeDirection.turnLeft {
-                    toSnapshotView.layer.transform = CATransform3DRotate(toSnapshotView.layer.transform, CGFloat(M_PI_2), 0, 1, 0)
-                    fromSnapshotView.layer.transform = CATransform3DRotate(fromSnapshotView.layer.transform, CGFloat(M_PI_2), 0, 1, 0)
+                    toSnapshotView?.layer.transform = CATransform3DRotate((toSnapshotView?.layer.transform)!, CGFloat(Double.pi / 2), 0, 1, 0)
+                    fromSnapshotView?.layer.transform = CATransform3DRotate((fromSnapshotView?.layer.transform)!, CGFloat(Double.pi / 2), 0, 1, 0)
                 } else {
-                    toSnapshotView.layer.transform = CATransform3DRotate(toSnapshotView.layer.transform, CGFloat(-M_PI_2), 0, 1, 0)
-                    fromSnapshotView.layer.transform = CATransform3DRotate(fromSnapshotView.layer.transform, CGFloat(-M_PI_2), 0, 1, 0)
+                    toSnapshotView?.layer.transform = CATransform3DRotate((toSnapshotView?.layer.transform)!, CGFloat(-Double.pi / 2), 0, 1, 0)
+                    fromSnapshotView?.layer.transform = CATransform3DRotate((fromSnapshotView?.layer.transform)!, CGFloat(-Double.pi / 2), 0, 1, 0)
                 }
 
             }, completion: {(value: Bool) in
-                fromSnapshotView.removeFromSuperview()
-                toSnapshotView.removeFromSuperview()
+                fromSnapshotView?.removeFromSuperview()
+                toSnapshotView?.removeFromSuperview()
                 backgroundView.removeFromSuperview()
                 transitionContext.completeTransition(true)
             })

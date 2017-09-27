@@ -18,7 +18,7 @@ class DropAnimationController: AnimationController {
         
     }
     
-    override func animateTransition(transitionContext: UIViewControllerContextTransitioning)  {
+    override func animateTransition(using transitionContext: UIViewControllerContextTransitioning)  {
         if isPresenting {
             executeDropInAnimation(transitionContext)
         } else {
@@ -26,47 +26,50 @@ class DropAnimationController: AnimationController {
         }
     }
     
-    func executeDropInAnimation(transitionContext: UIViewControllerContextTransitioning!) {
+    func executeDropInAnimation(_ transitionContext: UIViewControllerContextTransitioning!) {
         
         // Hold onto views, VCs, contexts, frames
-        let containerView = transitionContext.containerView()
-        let fromViewController = transitionContext .viewControllerForKey(UITransitionContextFromViewControllerKey)
-        let toViewController = transitionContext .viewControllerForKey(UITransitionContextToViewControllerKey)
-        let fromView = fromViewController?.view
-        let toView = toViewController?.view
-        toView!.frame = fromViewController!.view.frame
+        let containerView = transitionContext.containerView
+        let fromViewController = transitionContext .viewController(forKey: UITransitionContextViewControllerKey.from)
+        let toViewController = transitionContext .viewController(forKey: UITransitionContextViewControllerKey.to)
         
-        containerView!.insertSubview(toViewController!.view, belowSubview: fromViewController!.view)
+        guard let fromView = fromViewController?.view, let toView = toViewController?.view else {
+            return
+        }
+        
+        toView.frame = fromViewController!.view.frame
+        
+        containerView.insertSubview(toViewController!.view, belowSubview: fromViewController!.view)
         
         // Create a transition background view
-        let backgroundView = UIView(frame: transitionContext.initialFrameForViewController(fromViewController!))
-        backgroundView.backgroundColor = UIColor.blackColor()
+        let backgroundView = UIView(frame: transitionContext.initialFrame(for: fromViewController!))
+        backgroundView.backgroundColor = UIColor.black
         
-        containerView!.addSubview(backgroundView)
+        containerView.addSubview(backgroundView)
         
         // Take a snapshot of the presenting view
-        let fromSnapshotRect = fromView!.bounds
-        let fromSnapshotView = fromView!.resizableSnapshotViewFromRect(fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+        let fromSnapshotRect = fromView.bounds
+        let fromSnapshotView = fromView.resizableSnapshotView(from: fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsets.zero)
         
-        backgroundView.addSubview(fromSnapshotView)
+        backgroundView.addSubview(fromSnapshotView!)
         
         // Take a snapshot of the presented view
-        let toSnapshotRect = toView!.bounds
-        let toSnapshotView = toView!.resizableSnapshotViewFromRect(toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
-        backgroundView.addSubview(toSnapshotView)
-        toSnapshotView.frame = CGRectOffset(toSnapshotRect, 0, -toSnapshotRect.size.height);
+        let toSnapshotRect = toView.bounds
+        let toSnapshotView = toView.resizableSnapshotView(from: toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsets.zero)
+        backgroundView.addSubview(toSnapshotView!)
+        toSnapshotView?.frame = toSnapshotRect.offsetBy(dx: 0, dy: -toSnapshotRect.size.height);
 
-        UIView.animateWithDuration(presentationDuration, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: .CurveEaseInOut, animations: {
-                    fromSnapshotView.transform = CGAffineTransformMakeScale(0.5, 0.5);
-                    fromSnapshotView.alpha = 0.5;
+        UIView.animate(withDuration: presentationDuration, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: UIViewAnimationOptions(), animations: {
+                    fromSnapshotView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5);
+                    fromSnapshotView?.alpha = 0.5;
             }, completion: {(value: Bool) in
             })
 
-        UIView.animateWithDuration(presentationDuration, delay: 0.25, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: .CurveEaseInOut, animations: {
-                toSnapshotView.frame = CGRectOffset(toSnapshotView.frame, 0, toSnapshotView.frame.size.height);
+        UIView.animate(withDuration: presentationDuration, delay: 0.25, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: UIViewAnimationOptions(), animations: {
+                toSnapshotView?.frame = (toSnapshotView?.frame.offsetBy(dx: 0, dy: (toSnapshotView?.frame.size.height)!))!;
             }, completion: {(value: Bool) in
-                            toSnapshotView.removeFromSuperview()
-                            fromSnapshotView.removeFromSuperview()
+                            toSnapshotView?.removeFromSuperview()
+                            fromSnapshotView?.removeFromSuperview()
                             backgroundView.removeFromSuperview()
                             transitionContext.completeTransition(true)
             })
@@ -74,50 +77,51 @@ class DropAnimationController: AnimationController {
 
     }
     
-    func executeDropOutAnimation(transitionContext: UIViewControllerContextTransitioning!) {
+    func executeDropOutAnimation(_ transitionContext: UIViewControllerContextTransitioning!) {
         
         // Hold onto views, VCs, contexts, frames
-        let containerView = transitionContext.containerView()
-        let fromViewController = transitionContext .viewControllerForKey(UITransitionContextFromViewControllerKey)
-        let toViewController = transitionContext .viewControllerForKey(UITransitionContextToViewControllerKey)
-        let fromView = fromViewController?.view
-        let toView = toViewController?.view
+        let containerView = transitionContext.containerView
+        let fromViewController = transitionContext .viewController(forKey: UITransitionContextViewControllerKey.from)
+        let toViewController = transitionContext .viewController(forKey: UITransitionContextViewControllerKey.to)
+        guard let fromView = fromViewController?.view, let toView = toViewController?.view else {
+            return
+        }
         
-        containerView!.insertSubview((toViewController?.view)!, belowSubview: (fromViewController?.view)!)
+        containerView.insertSubview((toViewController?.view)!, belowSubview: (fromViewController?.view)!)
         
         // Create a transition background view
-        let backgroundView = UIView(frame: transitionContext.initialFrameForViewController(fromViewController!))
-        backgroundView.backgroundColor = UIColor.blackColor()
+        let backgroundView = UIView(frame: transitionContext.initialFrame(for: fromViewController!))
+        backgroundView.backgroundColor = UIColor.black
 
-        containerView!.addSubview(backgroundView)
+        containerView.addSubview(backgroundView)
         
         // Take a snapshot of the presenting view
-        let fromSnapshotRect = fromView!.bounds
-        let fromSnapshotView = fromView!.resizableSnapshotViewFromRect(fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+        let fromSnapshotRect = fromView.bounds
+        let fromSnapshotView = fromView.resizableSnapshotView(from: fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsets.zero)
 
-        backgroundView.addSubview(fromSnapshotView)
+        backgroundView.addSubview(fromSnapshotView!)
         
         
         // Take a snapshot of the presented view
-        let toSnapshotRect = toView!.bounds
-        let toSnapshotView = toView!.resizableSnapshotViewFromRect(toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsetsZero)
+        let toSnapshotRect = toView.bounds
+        let toSnapshotView = toView.resizableSnapshotView(from: toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsets.zero)
  
-        backgroundView.addSubview(toSnapshotView)
+        backgroundView.addSubview(toSnapshotView!)
         
-        toSnapshotView.transform = CGAffineTransformMakeScale(0.5, 0.5);
-        toSnapshotView.alpha = 0.5;
+        toSnapshotView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5);
+        toSnapshotView?.alpha = 0.5;
         
-        UIView.animateWithDuration(dismissalDuration, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: .CurveEaseInOut, animations: {
-                fromSnapshotView.frame = CGRectOffset(fromSnapshotView.frame, 0, -fromSnapshotView.frame.size.height);
+        UIView.animate(withDuration: dismissalDuration, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: UIViewAnimationOptions(), animations: {
+                (fromSnapshotView?.frame = (fromSnapshotView?.frame.offsetBy(dx: 0, dy: -(fromSnapshotView?.frame.size.height)!))!)!;
             }, completion: {(value: Bool) in
             })
         
-        UIView.animateWithDuration(dismissalDuration, delay: 0.25, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: .CurveEaseInOut, animations: {
-                toSnapshotView.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                toSnapshotView.alpha = 1.0
+        UIView.animate(withDuration: dismissalDuration, delay: 0.25, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: UIViewAnimationOptions(), animations: {
+                toSnapshotView?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                toSnapshotView?.alpha = 1.0
            }, completion: {(value: Bool) in
-                toSnapshotView.removeFromSuperview()
-                fromSnapshotView.removeFromSuperview()
+                toSnapshotView?.removeFromSuperview()
+                fromSnapshotView?.removeFromSuperview()
                 backgroundView.removeFromSuperview()
                 transitionContext.completeTransition(true)
             })

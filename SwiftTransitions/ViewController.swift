@@ -20,7 +20,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIViewCo
         super.viewDidLoad()
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         let buttonPressed = sender as! UIButton;
         
         switch buttonPressed {
@@ -32,16 +32,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIViewCo
         }
         
         self.navigationController!.delegate = self;
-        let toVC = segue.destinationViewController as UIViewController;
+        let toVC = segue.destination as UIViewController;
         
         toVC.transitioningDelegate = self;
         
     }
     
     
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        if operation == UINavigationControllerOperation.Push  {
+        if operation == UINavigationControllerOperation.push  {
             animationController.isPresenting = true
         } else {
             animationController.isPresenting = false
