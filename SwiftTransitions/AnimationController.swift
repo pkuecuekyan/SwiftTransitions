@@ -10,9 +10,9 @@ import UIKit
 
 class AnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
-    var isPresenting:Bool
-    var presentationDuration:Double
-    var dismissalDuration:Double
+    var isPresenting: Bool
+    var presentationDuration: TimeInterval
+    var dismissalDuration: TimeInterval
     
     override init()  {
         isPresenting = true
