@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1hd-Ah-5su">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A365" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1hd-Ah-5su">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--SwiftTransitions-->
@@ -14,90 +18,45 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Qv-lo-1sz">
-                                <rect key="frame" x="232" y="232" width="136" height="71"/>
-                                <animations/>
+                                <rect key="frame" x="119" y="266" width="136" height="71"/>
                                 <state key="normal" image="Door">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="EVO-5P-F3f" kind="show" id="5WS-UZ-jqF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-lk-rD3">
-                                <rect key="frame" x="175" y="344.5" width="251" height="130"/>
-                                <animations/>
-                                <state key="normal" image="Drop">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="EVO-5P-F3f" kind="show" id="0RC-XL-COK"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hP7-go-0qq">
-                                <rect key="frame" x="175" y="60" width="256" height="130.5"/>
-                                <animations/>
+                                <rect key="frame" x="119.5" y="148" width="136" height="70"/>
                                 <state key="normal" image="Cube">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="EVO-5P-F3f" kind="show" id="ywT-JU-wr9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KhQ-lk-rD3">
+                                <rect key="frame" x="122" y="384" width="131" height="71"/>
+                                <state key="normal" image="Drop">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="EVO-5P-F3f" kind="show" id="0RC-XL-COK"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" relation="lessThanOrEqual" secondItem="KhQ-lk-rD3" secondAttribute="bottom" constant="61" id="9gn-D9-Knz">
-                                <variation key="heightClass=compact-widthClass=compact" constant="8"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="8"/>
-                                <variation key="heightClass=regular-widthClass=compact" constant="141"/>
-                            </constraint>
-                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="hP7-go-0qq" secondAttribute="trailing" constant="169" id="A49-gT-pbl">
-                                <variation key="widthClass=compact" constant="92"/>
-                                <variation key="heightClass=compact-widthClass=compact" constant="92"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="252"/>
-                            </constraint>
-                            <constraint firstItem="KhQ-lk-rD3" firstAttribute="leading" relation="lessThanOrEqual" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="175" id="KrE-Ge-e1a">
-                                <variation key="widthClass=compact" constant="95"/>
-                                <variation key="heightClass=compact-widthClass=compact" constant="92"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="249"/>
-                            </constraint>
-                            <constraint firstItem="hP7-go-0qq" firstAttribute="leading" relation="lessThanOrEqual" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="175" id="NC6-Bi-QaA">
-                                <variation key="widthClass=compact" constant="92"/>
-                                <variation key="heightClass=compact-widthClass=compact" constant="92"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="252"/>
-                            </constraint>
-                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="KhQ-lk-rD3" secondAttribute="trailing" constant="174" id="PZ5-Yu-Jgf">
-                                <variation key="widthClass=compact" constant="94"/>
-                                <variation key="heightClass=compact-widthClass=compact" constant="97"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="255"/>
-                                <variation key="heightClass=regular-widthClass=compact" constant="89"/>
-                            </constraint>
-                            <constraint firstAttribute="centerX" secondItem="5Qv-lo-1sz" secondAttribute="centerX" id="Z9g-21-NCg"/>
-                            <constraint firstItem="hP7-go-0qq" firstAttribute="top" relation="lessThanOrEqual" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="fun-ch-31C">
-                                <variation key="widthClass=compact" constant="62"/>
-                                <variation key="heightClass=compact-widthClass=compact" constant="15"/>
-                                <variation key="heightClass=regular-widthClass=compact" constant="115"/>
-                            </constraint>
-                            <constraint firstItem="KhQ-lk-rD3" firstAttribute="top" secondItem="5Qv-lo-1sz" secondAttribute="bottom" constant="41" id="sJh-hM-sm9">
-                                <variation key="heightClass=compact" constant="15"/>
-                                <variation key="heightClass=compact-widthClass=compact" constant="8"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="14"/>
-                                <variation key="heightClass=regular-widthClass=compact" constant="66"/>
-                            </constraint>
-                            <constraint firstAttribute="centerY" secondItem="5Qv-lo-1sz" secondAttribute="centerY" id="ut0-o4-7jh">
-                                <variation key="heightClass=compact-widthClass=compact" constant="-5.5"/>
-                            </constraint>
-                            <constraint firstItem="5Qv-lo-1sz" firstAttribute="top" secondItem="hP7-go-0qq" secondAttribute="bottom" constant="42" id="zLl-Pj-Goh">
-                                <variation key="heightClass=compact" constant="12"/>
-                                <variation key="heightClass=compact-widthClass=compact" constant="13"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="14"/>
-                                <variation key="heightClass=regular-widthClass=compact" constant="66"/>
-                            </constraint>
+                            <constraint firstItem="hP7-go-0qq" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="0SI-7i-Yq8"/>
+                            <constraint firstItem="5Qv-lo-1sz" firstAttribute="top" secondItem="hP7-go-0qq" secondAttribute="bottom" constant="48" id="IWa-vq-thI"/>
+                            <constraint firstItem="5Qv-lo-1sz" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Md7-1h-qwh"/>
+                            <constraint firstItem="KhQ-lk-rD3" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="OA4-wa-Wjh"/>
+                            <constraint firstItem="KhQ-lk-rD3" firstAttribute="top" secondItem="5Qv-lo-1sz" secondAttribute="bottom" constant="47" id="YMf-r9-dem"/>
+                            <constraint firstItem="5Qv-lo-1sz" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="sd3-pi-yQa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SwiftTransitions" id="fS4-Qy-sqO">
@@ -111,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="848" y="-232.5"/>
+            <point key="canvasLocation" x="1092" y="-233"/>
         </scene>
         <!--Selected Page-->
         <scene sceneID="2yE-sd-2D2">
@@ -122,16 +81,14 @@
                         <viewControllerLayoutGuide type="bottom" id="38c-ut-Yq7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CZg-Lr-Kib">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Totoro" translatesAutoresizingMaskIntoConstraints="NO" id="Z7N-1c-t5Z">
-                                <rect key="frame" x="208" y="142" width="184" height="251"/>
-                                <animations/>
+                                <rect key="frame" x="95.5" y="175.5" width="184" height="251"/>
                             </imageView>
                         </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="Z7N-1c-t5Z" secondAttribute="centerY" constant="0.5" id="S1G-35-VbR"/>
                             <constraint firstAttribute="centerX" secondItem="Z7N-1c-t5Z" secondAttribute="centerX" id="uZt-bS-1sz"/>
@@ -140,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnK-1A-a2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1361" y="-239"/>
+            <point key="canvasLocation" x="1846" y="-233"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JCt-Y9-axf">
@@ -150,12 +107,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bJT-K9-C8V">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.67058825489999996" green="0.0039215688589999999" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.59856253862380981" green="0.0" blue="0.010982918553054333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="24"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
