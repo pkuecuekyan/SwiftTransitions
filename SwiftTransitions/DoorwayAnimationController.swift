@@ -117,19 +117,23 @@ class DoorwayAnimationController: AnimationController {
         
         // Take a snapshot of the presented view: left
         let toLeftSnapshotRect = CGRect(x: 0.0, y: 0.0, width: (toView.frame.size.width) / 2, height: (toView.frame.size.height))
-        let toLeftSnapshotView = toView.resizableSnapshotView(from: toLeftSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsets.zero)
-        toLeftSnapshotView?.frame = toLeftSnapshotRect
-        toLeftSnapshotView?.frame = (toLeftSnapshotView?.frame.offsetBy(dx: -(toLeftSnapshotView?.frame.size.width)!, dy: 0))!
+        guard let toLeftSnapshotView = toView.resizableSnapshotView(from: toLeftSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsets.zero) else {
+            return
+        }
+        toLeftSnapshotView.frame = toLeftSnapshotRect
+        toLeftSnapshotView.frame = (toLeftSnapshotView.frame.offsetBy(dx: -(toLeftSnapshotView.frame.size.width), dy: 0))
  
-        backgroundView.addSubview(toLeftSnapshotView!)
+        backgroundView.addSubview(toLeftSnapshotView)
         
         // Take a snapshot of the presented view: right
         let toRightSnapshotRect = CGRect(x: (toView.frame.size.width) / 2, y: 0.0, width: (toView.frame.size.width) / 2, height: (fromView.frame.size.height))
-        let toRightSnapshotView = toView.resizableSnapshotView(from: toRightSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsets.zero)
-        toRightSnapshotView?.frame = toRightSnapshotRect
-        toRightSnapshotView?.frame = (toRightSnapshotView?.frame.offsetBy(dx: (toRightSnapshotView?.frame.size.width)!, dy: 0))!;
+        guard let toRightSnapshotView = toView.resizableSnapshotView(from: toRightSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsets.zero) else {
+            return
+        }
+        toRightSnapshotView.frame = toRightSnapshotRect
+        toRightSnapshotView.frame = (toRightSnapshotView.frame.offsetBy(dx: (toRightSnapshotView.frame.size.width), dy: 0))
  
-        backgroundView.addSubview(toRightSnapshotView!);
+        backgroundView.addSubview(toRightSnapshotView)
         
         // Take a snapshot of the presenting view
         let fromSnapshotRect = containerView.frame
@@ -141,15 +145,15 @@ class DoorwayAnimationController: AnimationController {
         UIView.animate(withDuration: dismissalDuration, delay: 0.0, options: UIViewAnimationOptions(), animations: {
                 fromSnapshotView.transform = CGAffineTransform(scaleX: self.kDoorwayZoomScale, y: self.kDoorwayZoomScale);
                 fromSnapshotView.alpha = 0.0;
-                toLeftSnapshotView?.frame = (toLeftSnapshotView?.frame.offsetBy(dx: (toLeftSnapshotView?.frame.size.width)!, dy: 0))!;
-                toRightSnapshotView?.frame = (toRightSnapshotView?.frame.offsetBy(dx: -(toRightSnapshotView?.frame.size.width)!, dy: 0))!;
+                toLeftSnapshotView.frame = (toLeftSnapshotView.frame.offsetBy(dx: (toLeftSnapshotView.frame.size.width), dy: 0))
+                toRightSnapshotView.frame = (toRightSnapshotView.frame.offsetBy(dx: -(toRightSnapshotView.frame.size.width), dy: 0))
 
             }, completion: {(value: Bool) in
-                fromSnapshotView.removeFromSuperview()
-                toLeftSnapshotView?.removeFromSuperview()
-                toRightSnapshotView?.removeFromSuperview()
-                backgroundView.removeFromSuperview()
                 transitionContext.completeTransition(true)
+                fromSnapshotView.removeFromSuperview()
+                toLeftSnapshotView.removeFromSuperview()
+                toRightSnapshotView.removeFromSuperview()
+                backgroundView.removeFromSuperview()
             })
     }
     
