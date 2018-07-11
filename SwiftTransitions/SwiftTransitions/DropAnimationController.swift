@@ -57,16 +57,16 @@ class DropAnimationController: AnimationController {
         let toSnapshotRect = toView.bounds
         let toSnapshotView = toView.resizableSnapshotView(from: toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsets.zero)
         backgroundView.addSubview(toSnapshotView!)
-        toSnapshotView?.frame = toSnapshotRect.offsetBy(dx: 0, dy: -toSnapshotRect.size.height);
+        toSnapshotView?.frame = toSnapshotRect.offsetBy(dx: 0, dy: -toSnapshotRect.size.height)
 
         UIView.animate(withDuration: presentationDuration, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: UIViewAnimationOptions(), animations: {
-                    fromSnapshotView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5);
-                    fromSnapshotView?.alpha = 0.5;
+                    fromSnapshotView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                    fromSnapshotView?.alpha = 0.5
             }, completion: {(value: Bool) in
             })
 
         UIView.animate(withDuration: presentationDuration, delay: 0.25, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: UIViewAnimationOptions(), animations: {
-                toSnapshotView?.frame = (toSnapshotView?.frame.offsetBy(dx: 0, dy: (toSnapshotView?.frame.size.height)!))!;
+                toSnapshotView?.frame = (toSnapshotView?.frame.offsetBy(dx: 0, dy: (toSnapshotView?.frame.size.height)!))!
             }, completion: {(value: Bool) in
                             toSnapshotView?.removeFromSuperview()
                             fromSnapshotView?.removeFromSuperview()
@@ -108,11 +108,11 @@ class DropAnimationController: AnimationController {
  
         backgroundView.addSubview(toSnapshotView!)
         
-        toSnapshotView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5);
-        toSnapshotView?.alpha = 0.5;
+        toSnapshotView?.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        toSnapshotView?.alpha = 0.5
         
         UIView.animate(withDuration: dismissalDuration, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6.0, options: UIViewAnimationOptions(), animations: {
-                (fromSnapshotView?.frame = (fromSnapshotView?.frame.offsetBy(dx: 0, dy: -(fromSnapshotView?.frame.size.height)!))!)!;
+                (fromSnapshotView?.frame = (fromSnapshotView?.frame.offsetBy(dx: 0, dy: -(fromSnapshotView?.frame.size.height)!))!)!
             }, completion: {(value: Bool) in
             })
         

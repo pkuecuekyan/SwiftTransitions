@@ -7,31 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		694B4AD11FAEC81000A10836 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694B4ACC1FAEC81000A10836 /* AnimationController.swift */; };
+		694B4AD21FAEC81000A10836 /* DoorwayAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694B4ACD1FAEC81000A10836 /* DoorwayAnimationController.swift */; };
+		694B4AD31FAEC81000A10836 /* CubeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694B4ACE1FAEC81000A10836 /* CubeAnimationController.swift */; };
+		694B4AD41FAEC81000A10836 /* ReflectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694B4ACF1FAEC81000A10836 /* ReflectionView.swift */; };
+		694B4AD51FAEC81000A10836 /* DropAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694B4AD01FAEC81000A10836 /* DropAnimationController.swift */; };
 		69B55CF4197076A300E001D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B55CF3197076A300E001D3 /* AppDelegate.swift */; };
 		69B55CF6197076A300E001D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B55CF5197076A300E001D3 /* ViewController.swift */; };
 		69B55CF9197076A300E001D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B55CF7197076A300E001D3 /* Main.storyboard */; };
 		69B55CFB197076A300E001D3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69B55CFA197076A300E001D3 /* Images.xcassets */; };
-		69D0E9271970F34400206BAE /* DoorwayAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D0E9261970F34400206BAE /* DoorwayAnimationController.swift */; };
-		69D0E9291970F3F900206BAE /* ReflectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D0E9281970F3F900206BAE /* ReflectionView.swift */; };
-		69D0E92B1971052100206BAE /* DropAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D0E92A1971052100206BAE /* DropAnimationController.swift */; };
 		69E2550F1970C41F0084A73C /* SelectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E2550E1970C41F0084A73C /* SelectedViewController.swift */; };
-		69E255111970C8250084A73C /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E255101970C8250084A73C /* AnimationController.swift */; };
-		69E255131970CB4A0084A73C /* CubeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E255121970CB4A0084A73C /* CubeAnimationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		694B4ACC1FAEC81000A10836 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
+		694B4ACD1FAEC81000A10836 /* DoorwayAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorwayAnimationController.swift; sourceTree = "<group>"; };
+		694B4ACE1FAEC81000A10836 /* CubeAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeAnimationController.swift; sourceTree = "<group>"; };
+		694B4ACF1FAEC81000A10836 /* ReflectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectionView.swift; sourceTree = "<group>"; };
+		694B4AD01FAEC81000A10836 /* DropAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropAnimationController.swift; sourceTree = "<group>"; };
 		69B55CEE197076A300E001D3 /* SwiftTransitions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTransitions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B55CF2197076A300E001D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69B55CF3197076A300E001D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B55CF5197076A300E001D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		69B55CF8197076A300E001D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69B55CFA197076A300E001D3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		69D0E9261970F34400206BAE /* DoorwayAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorwayAnimationController.swift; sourceTree = "<group>"; };
-		69D0E9281970F3F900206BAE /* ReflectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReflectionView.swift; sourceTree = "<group>"; };
-		69D0E92A1971052100206BAE /* DropAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropAnimationController.swift; sourceTree = "<group>"; };
 		69E2550E1970C41F0084A73C /* SelectedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedViewController.swift; sourceTree = "<group>"; };
-		69E255101970C8250084A73C /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
-		69E255121970CB4A0084A73C /* CubeAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeAnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +45,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		694B4ACB1FAEC81000A10836 /* SwiftTransitions */ = {
+			isa = PBXGroup;
+			children = (
+				694B4ACC1FAEC81000A10836 /* AnimationController.swift */,
+				694B4ACD1FAEC81000A10836 /* DoorwayAnimationController.swift */,
+				694B4ACE1FAEC81000A10836 /* CubeAnimationController.swift */,
+				694B4ACF1FAEC81000A10836 /* ReflectionView.swift */,
+				694B4AD01FAEC81000A10836 /* DropAnimationController.swift */,
+			);
+			path = SwiftTransitions;
+			sourceTree = "<group>";
+		};
 		6956AC121971F98700781E67 /* viewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -54,32 +66,12 @@
 			name = viewControllers;
 			sourceTree = "<group>";
 		};
-		6956AC131971F99100781E67 /* animationControllers */ = {
-			isa = PBXGroup;
-			children = (
-				69E255101970C8250084A73C /* AnimationController.swift */,
-				69E255121970CB4A0084A73C /* CubeAnimationController.swift */,
-				69D0E9261970F34400206BAE /* DoorwayAnimationController.swift */,
-				69D0E92A1971052100206BAE /* DropAnimationController.swift */,
-			);
-			name = animationControllers;
-			sourceTree = "<group>";
-		};
-		6956AC141971F9A100781E67 /* views */ = {
-			isa = PBXGroup;
-			children = (
-				69D0E9281970F3F900206BAE /* ReflectionView.swift */,
-			);
-			name = views;
-			sourceTree = "<group>";
-		};
 		6956AC151971F9AF00781E67 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				69B55CF3197076A300E001D3 /* AppDelegate.swift */,
+				694B4ACB1FAEC81000A10836 /* SwiftTransitions */,
 				6956AC121971F98700781E67 /* viewControllers */,
-				6956AC131971F99100781E67 /* animationControllers */,
-				6956AC141971F9A100781E67 /* views */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -155,12 +147,12 @@
 			attributes = {
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "phi & co.";
 				TargetAttributes = {
 					69B55CED197076A300E001D3 = {
 						CreatedOnToolsVersion = 6.0;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0910;
 					};
 				};
 			};
@@ -199,13 +191,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69E255111970C8250084A73C /* AnimationController.swift in Sources */,
-				69D0E92B1971052100206BAE /* DropAnimationController.swift in Sources */,
-				69D0E9291970F3F900206BAE /* ReflectionView.swift in Sources */,
+				694B4AD11FAEC81000A10836 /* AnimationController.swift in Sources */,
+				694B4AD51FAEC81000A10836 /* DropAnimationController.swift in Sources */,
+				694B4AD41FAEC81000A10836 /* ReflectionView.swift in Sources */,
 				69B55CF6197076A300E001D3 /* ViewController.swift in Sources */,
-				69E255131970CB4A0084A73C /* CubeAnimationController.swift in Sources */,
 				69E2550F1970C41F0084A73C /* SelectedViewController.swift in Sources */,
-				69D0E9271970F34400206BAE /* DoorwayAnimationController.swift in Sources */,
+				694B4AD31FAEC81000A10836 /* CubeAnimationController.swift in Sources */,
+				694B4AD21FAEC81000A10836 /* DoorwayAnimationController.swift in Sources */,
 				69B55CF4197076A300E001D3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,14 +224,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -278,14 +278,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -318,7 +326,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.phiandco.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -331,7 +340,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.phiandco.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

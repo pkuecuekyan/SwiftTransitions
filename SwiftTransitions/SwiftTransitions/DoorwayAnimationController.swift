@@ -57,21 +57,21 @@ class DoorwayAnimationController: AnimationController {
         containerView.addSubview(backgroundView)
         
         // Take a snapshot of the presenting view: left
-        let fromLeftSnapshotRect = CGRect(x: 0.0, y: 0.0, width: (fromView.frame.size.width) / 2, height: (fromView.frame.size.height));
+        let fromLeftSnapshotRect = CGRect(x: 0.0, y: 0.0, width: (fromView.frame.size.width) / 2, height: (fromView.frame.size.height))
         let fromLeftSnapshotView = fromView.resizableSnapshotView(from: fromLeftSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsets.zero)
         fromLeftSnapshotView?.frame = fromLeftSnapshotRect
  
         backgroundView.addSubview(fromLeftSnapshotView!)
         
         // Take a snapshot of the presenting view: right
-        let fromRightSnapshotRect = CGRect(x: (fromView.frame.size.width) / 2, y: 0.0, width: (fromView.frame.size.width) / 2, height: (fromView.frame.size.height));
+        let fromRightSnapshotRect = CGRect(x: (fromView.frame.size.width) / 2, y: 0.0, width: (fromView.frame.size.width) / 2, height: (fromView.frame.size.height))
         let fromRightSnapshotView = fromView.resizableSnapshotView(from: fromRightSnapshotRect, afterScreenUpdates:false, withCapInsets:UIEdgeInsets.zero)
-        fromRightSnapshotView?.frame = fromRightSnapshotRect;
+        fromRightSnapshotView?.frame = fromRightSnapshotRect
   
         backgroundView.addSubview(fromRightSnapshotView!)
         
         // Take a snapshot of the presented view
-        let toSnapshotRect = containerView.frame;
+        let toSnapshotRect = containerView.frame
         let toSnapshotView = ReflectionView(frame:toSnapshotRect)
         toSnapshotView.addSubview((toView.resizableSnapshotView(from: toSnapshotRect, afterScreenUpdates: true, withCapInsets: UIEdgeInsets.zero)!))
         let scale:CATransform3D = CATransform3DIdentity
@@ -80,7 +80,7 @@ class DoorwayAnimationController: AnimationController {
         backgroundView.addSubview(toSnapshotView)
         
         UIView.animate(withDuration: presentationDuration, delay: 0.0, options: UIViewAnimationOptions(), animations: {
-                toSnapshotView.layer.transform = CATransform3DScale(scale, 1.0, 1.0, 1);
+                toSnapshotView.layer.transform = CATransform3DScale(scale, 1.0, 1.0, 1)
                 toSnapshotView.alpha = 1.0
                 fromLeftSnapshotView?.frame = (fromLeftSnapshotView?.frame.offsetBy(dx: -(fromLeftSnapshotView?.frame.size.width)!, dy: 0))!
                 fromRightSnapshotView?.frame = (fromRightSnapshotView?.frame.offsetBy(dx: (fromRightSnapshotView?.frame.size.width)!, dy: 0))!
@@ -137,14 +137,14 @@ class DoorwayAnimationController: AnimationController {
         
         // Take a snapshot of the presenting view
         let fromSnapshotRect = containerView.frame
-        let fromSnapshotView = ReflectionView(frame:fromSnapshotRect);
+        let fromSnapshotView = ReflectionView(frame:fromSnapshotRect)
         fromSnapshotView.addSubview((fromView.resizableSnapshotView(from: fromSnapshotRect, afterScreenUpdates: false, withCapInsets: UIEdgeInsets.zero)!))
 
         backgroundView.addSubview(fromSnapshotView)
         
         UIView.animate(withDuration: dismissalDuration, delay: 0.0, options: UIViewAnimationOptions(), animations: {
-                fromSnapshotView.transform = CGAffineTransform(scaleX: self.kDoorwayZoomScale, y: self.kDoorwayZoomScale);
-                fromSnapshotView.alpha = 0.0;
+                fromSnapshotView.transform = CGAffineTransform(scaleX: self.kDoorwayZoomScale, y: self.kDoorwayZoomScale)
+                fromSnapshotView.alpha = 0.0
                 toLeftSnapshotView.frame = (toLeftSnapshotView.frame.offsetBy(dx: (toLeftSnapshotView.frame.size.width), dy: 0))
                 toRightSnapshotView.frame = (toRightSnapshotView.frame.offsetBy(dx: -(toRightSnapshotView.frame.size.width), dy: 0))
 

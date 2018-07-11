@@ -25,18 +25,18 @@ class ReflectionView: UIView {
     }
   
     func setUp() {
-        let layer = self.layer as! CAReplicatorLayer;
-        layer.instanceCount = 2;
+        let layer = self.layer as! CAReplicatorLayer
+        layer.instanceCount = 2
     
         // Move and invert reflection
-        var transform : CATransform3D = CATransform3DIdentity;
-        let verticalOffset:CGFloat = self.bounds.size.height + 2;
-        transform = CATransform3DTranslate(transform, 0, verticalOffset, 0);
-        transform = CATransform3DScale(transform, 1, -1, 0);
-        layer.instanceTransform = transform;
+        var transform : CATransform3D = CATransform3DIdentity
+        let verticalOffset:CGFloat = self.bounds.size.height + 2
+        transform = CATransform3DTranslate(transform, 0, verticalOffset, 0)
+        transform = CATransform3DScale(transform, 1, -1, 0)
+        layer.instanceTransform = transform
     
         // Dim reflection
-        layer.instanceAlphaOffset = -0.6;
+        layer.instanceAlphaOffset = -0.6
 
     }
     
