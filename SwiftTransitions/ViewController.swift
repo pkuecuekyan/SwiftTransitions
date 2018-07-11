@@ -21,7 +21,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIViewCo
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        let buttonPressed = sender as! UIButton;
+        let buttonPressed = sender as! UIButton
         
         switch buttonPressed {
             case cubeButton!: animationController = CubeAnimationController()
@@ -31,10 +31,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIViewCo
             
         }
         
-        self.navigationController!.delegate = self;
-        let toVC = segue.destination as UIViewController;
+        self.navigationController!.delegate = self
+        let toVC = segue.destination as UIViewController
         
-        toVC.transitioningDelegate = self;
+        toVC.transitioningDelegate = self
         
     }
     
@@ -46,7 +46,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIViewCo
         } else {
             animationController.isPresenting = false
         }
-        return self.animationController;
+        return self.animationController
 
     }
 }
