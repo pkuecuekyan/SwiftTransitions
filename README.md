@@ -17,17 +17,15 @@ To use in your own projects, just drag the files in the PHIAnimationControllers 
 
 and return it in the corresponding protocol methods
 
-```objective-c
-    func navigationController(navigationController: UINavigationController!, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController!, toViewController toVC: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
-
-        let cubeAnimationController = CubeAnimationController()
+```swift
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
-        if operation == UINavigationControllerOperation.Push  {
-            cubeAnimationController.isPresenting = true
+        if operation == .push  {
+            animationController.isPresenting = true
         } else {
-            cubeAnimationController.isPresenting = false
+            animationController.isPresenting = false
         }
-        return cubeAnimationController;
+        return self.animationController
 
     }
 ```
